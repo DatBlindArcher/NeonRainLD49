@@ -94,7 +94,6 @@ class Fruit extends Component {
 }
 
 class Basket extends Component {}
-class Hand extends Component {}
 
 module.exports = {
     Game,
@@ -104,9 +103,7 @@ module.exports = {
     Draw,
     Audio,
     Spawner,
-    
     Basket,
-    Hand,
 
     Position,
     Rotation,

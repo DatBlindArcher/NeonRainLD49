@@ -30,9 +30,7 @@ class Scene {
         this.ecs.registerComponent(Components.Draw, 1);
         this.ecs.registerComponent(Components.Spawner, 1);
         this.ecs.registerComponent(Components.Audio, 1);
-
         this.ecs.registerComponent(Components.Basket, 1);
-        this.ecs.registerComponent(Components.Hand, 1);
         
         this.ecs.registerComponent(Components.Position, 32);
         this.ecs.registerComponent(Components.Rotation, 32);
@@ -88,7 +86,6 @@ class Scene {
 
         this.ecs.registerSystem('logic', Systems.Life);
         this.ecs.registerSystem('logic', Systems.FruitSpawner);
-        this.ecs.registerSystem('logic', Systems.HandMovement);
         this.ecs.registerSystem('logic', Systems.BasketMovement);
         this.ecs.registerSystem('logic', Systems.FruitMovement);
         this.ecs.registerSystem('physics', Systems.Physics);
@@ -96,34 +93,6 @@ class Scene {
         this.ecs.registerSystem('render', Systems.Render);
 
         // Create Entities
-
-        /*this.ecs.createEntity({
-            id: 'hand_entity',
-            components: [{
-                type: 'Sprite',
-                setOptions: function(render) {
-                    render.fillStyle = 'transparent';
-                    render.strokeStyle = 'cyan';
-                    render.lineWidth = 1;
-                }
-            }, {
-                type: 'Position',
-                x: game.canvas.width / 2, 
-                y: game.canvas.height
-            }, {
-                type: 'Rotation',
-                angle: 0
-            }, {
-                type: 'Scale',
-                x: 1, y: 1
-            }, { type: 'Hand' }, { 
-                type: 'Matter', 
-                static: true, 
-                objectCreate: function(pos) { 
-                    return Bodies.circle(pos.x, pos.y, 45); 
-                } 
-            }]
-        });*/
 
         this.ecs.createEntity({
             id: 'basket_entity',
