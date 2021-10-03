@@ -4,3 +4,8 @@ services:
     build: .
     ports:
       - "8080:8080"
+    networks:
+      - nginx_inter-net
+networks:
+  nginx_inter-net:
+    external: true
