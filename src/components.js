@@ -26,7 +26,8 @@ class Input extends Component {
 class Physics extends Component {
     static properties = {
         engine: undefined,
-        gravity: -0.5
+        gravity: -0.5,
+        difficulty: 1
     }
 }
 

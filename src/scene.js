@@ -116,11 +116,12 @@ class Scene {
             }, { type: 'Basket' }, { 
                 type: 'Matter', 
                 static: true,
-                objectCreate: this.createBasket
+                objectCreate: (p) => this.createBasket(p, game.difficulty)
             }]
         });
 
         this.singleton_entity = null;
+        this.singleton.game.difficulty = game.difficulty;
         this.scores = document.getElementsByClassName("score_value");
         this.hearts = [];
 
@@ -128,10 +129,11 @@ class Scene {
             this.hearts.push(document.getElementById("heart_" + i));
     }
 
-    createBasket(pos) {
+    createBasket(pos, difficulty) {
+        console.log(difficulty)
         const edge = 20;
-        const top = 160;
-        const bottom = 120;
+        const top = 200 - (40 * difficulty);
+        const bottom = 160 - (40 * difficulty);
         const height = 60;
         const norm = edge / Math.sqrt(2 * (edge * edge)) * edge;
 
@@ -147,10 +149,14 @@ class Scene {
         ]); 
     }
 
-    update(time, deltaTime, input) {
+    update(time, deltaTime, input, sfx) {
         this.singleton.time.deltaTime = deltaTime;
         this.singleton.input.x = input.x;
         this.singleton.input.y = input.y;
+
+        for (const sample of this.singleton.audio.samples.values()) {
+            sample.volume = sfx;
+        }
 
         let ctx = this.singleton.draw.ctx; 
         ctx.shadowBlur = 8;
