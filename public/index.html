@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Rain</title>
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    <script src="jquery.min.js"></script>
+    <script src="semantic/semantic.min.js"></script>
+</head>
+<body>
+    <div class="ui container">
+        <h1 class="ui inverted center aligned huge header">Neon Rain</h1>
+        <div class="ui inverted segment">
+            <div class="ui left rail">
+                <div class="ui inverted segment">
+                    <h3 class="ui dividing inverted header">Description</h3>
+                    <div class="ui list">
+                        <div class="item">Ludum Dare 49</div>
+                        <div class="item">Theme: Unstable</div>
+                        <div class="item">Made By: Blind Archer</div>
+                        <div class="item">Frameworks:</div>
+                        <div class="item">&nbsp;&nbsp;Architecture: Ape ECS</div>
+                        <div class="item">&nbsp;&nbsp;Physics: Matter JS</div>
+                        <div class="item">&nbsp;&nbsp;Layout: Semantic UI</div>
+                        <div class="item">&nbsp;&nbsp;Audio: SFXR</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui right rail">
+                <div class="ui inverted segment">
+                    <h3 class="ui dividing inverted header">Controls</h3>
+                    <div class="ui list">
+                        <div class="item">Guide the hover containe with your <b class="strong">mouse</b> to catch the falling neon drops.</div>
+                        <div class="item">When the container scans <b class="strong">4 drops</b> or more of the same color touching then it will disintegrate them.</div>
+                        <div class="item"><b class="strong">Score</b> as many points as you can by disintegrating drops.</div>
+                        <div class="item">But don't drop them or you lose a <b class="strong">life</b>.</div>
+                    </div>
+                </div>
+            </div>
+            <i id="heart_0" class="ui heart icon"></i>
+            <i id="heart_1" class="ui heart icon"></i>
+            <i id="heart_2" class="ui heart icon"></i>
+            <i id="heart_3" class="ui heart icon"></i>
+            <div class="score"><span class="score_value">1</span><i class="ui circle outline icon"></i></div>    
+            <canvas id='game' width="800" height="600"></canvas>
+            <div id="game_start" class="overlay">
+                <button id="start_button" class="ui primary button">Start Game</button>
+            </div>
+            <div id="game_over" class="overlay">
+                <h2 class="ui center aligned inverted huge header">Game Over</h2>
+                <div>Score: <span class="score_value">1</span><i class="ui circle outline icon"></i></div>
+                <button id="retry_button" class="ui primary button">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src='output.js'></script>
+</body>
+<style>
+body {
+    margin-top: 100px;
+    background-color: #04040A;
+}
+
+#game {
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 800px;
+}
+
+.strong {
+    font-size: 16px;
+}
+
+.ui.container {
+    width: 830px;
+}
+
+.ui.rail > .ui.segment {
+    height: 630px;
+}
+
+.ui.right.rail {
+    margin: 0;
+}
+
+.ui.left.rail {
+    margin: 0;
+}
+
+.ui.heart.icon {
+    position: absolute;
+    top: 24px;
+}
+
+.score {
+    position: absolute;
+    top: 24px;
+    right: 30px;
+}
+
+.score_value {
+    margin: 10px;
+    font-size: medium;
+}
+
+#heart_0 {
+    left: 30px;
+}
+#heart_1 {
+    left: 50px;
+}
+#heart_2 {
+    left: 70px;
+}
+#heart_3 {
+    left: 90px;
+}
+
+.overlay {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  top: 15px;
+  background-color: rgba(40, 40, 40, 0.5);
+  z-index: 2;
+}
+
+#game_start {
+  display: block;
+}
+
+#game_over {
+  display: none;
+}
+
+.overlay > .ui.header {
+  position: absolute;
+  width: 200px;
+  top: 200px;
+  left: 300px;
+}
+
+.overlay > .ui.header {
+  position: absolute;
+  width: 200px;
+  top: 180px;
+  left: 300px;
+}
+
+.overlay > .ui.button {
+  position: absolute;
+  width: 200px;
+  top: 260px;
+  left: 300px;
+}
+
+.overlay > div {
+  position: absolute;
+  text-align: center;
+  width: 200px;
+  top: 220px;
+  left: 300px;
+  font-size: 16px;
+}
+</style>
+</html>
