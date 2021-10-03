@@ -8,7 +8,7 @@ class Game {
         this.sfx = document.getElementById("sfx_slider").value / 100;
         this.setup(options.canvas);
         this.scene = new Scene(this);
-        this.music = new Audio('/audio/music.wav');
+        this.music = new Audio('/audio/music2.wav');
         this.music.loop = true;
         this.music.volume = document.getElementById("bg_slider").value / 100;
         window.requestAnimationFrame(this.update.bind(this));
